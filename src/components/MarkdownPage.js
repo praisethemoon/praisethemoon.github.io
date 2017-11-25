@@ -7,28 +7,39 @@ import React, { Component } from 'react'
 import marked from 'marked'
 
 export default class MarkdownPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state = {markdown: "Preparing for awesomeness"}
+        this.state = { markdown: "Preparing for awesomeness" }
+        this.loadMdFile = this.loadMdFile.bind(this)
+    }
+
+    loadMdFile(filepath) {
+
+        fetch(filepath)
+            .then(response => {
+                return response.text()
+            })
+            .then(text => {
+                this.setState({
+                    markdown: marked(text)
+                })
+            })
     }
 
     componentWillMount() {
-        const readmePath = this.props.file
-      
-        fetch(readmePath)
-          .then(response => {
-            return response.text()
-          })
-          .then(text => {
-            this.setState({
-              markdown: marked(text)
-            })
-          })
-      }
+        const filepath = this.props.file
+        this.loadMdFile(filepath)
+    }
 
-    render(){
-        return(
-            <div dangerouslySetInnerHTML={{__html: this.state.markdown}}></div>
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.file && (nextProps.file != this.props.file)) {
+            this.loadMdFile(nextProps.file)
+        }
+    }
+
+    render() {
+        return (
+            <div dangerouslySetInnerHTML={{ __html: this.state.markdown }}></div>
         )
     }
 }
