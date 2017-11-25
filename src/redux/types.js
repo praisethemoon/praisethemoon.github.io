@@ -1,0 +1,4 @@
+/*
+ * Redux store data types
+ * 
+ */
