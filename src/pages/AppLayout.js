@@ -8,10 +8,12 @@ import {Route} from 'react-router'
 import {Switch, Link, NavLink} from 'react-router-dom'
 import { HashRouter, Router } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd'
+import MarkdownPage from '../components/MarkdownPage'
 
 // importing ui pages
 import Courses from './Courses'
-import MarkdownPage from '../components/MarkdownPage'
+import Projects from './Projects'
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -49,7 +51,7 @@ export default class AppLayout extends Component {
 							<Route exact path="/" render={() => (<MarkdownPage file={importMD('home')}/>)}/>
 							<Route exact path="/home" render={() => (<MarkdownPage file={importMD('home')}/>)}/>
 							<Route exact path="/blog" render={() => <MarkdownPage file={importMD('blog')}/>}/>
-							<Route exact path="/projects" render={() => <MarkdownPage file={importMD('projects')}/>}/>
+							<Route exact path="/projects" render={() => <Projects/>}/>
 							<Route exact path="/courses" render={() => <Courses/>}/>
 							<Route exact path="/pubs" render={() => <MarkdownPage file={importMD('pubs')}/>}/>
 							<Route exact path="/portfolio" render={() => <MarkdownPage file={importMD('portfolio')}/>}/>

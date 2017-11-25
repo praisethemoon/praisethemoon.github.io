@@ -4,7 +4,9 @@
  */
 
 import React, { Component } from 'react'
-import { Alert, Card } from 'antd'
+import { Alert, Card, Collapse} from 'antd'
+
+const Panel = Collapse.Panel;
 
 export default class Courses extends Component {
     render() {
@@ -26,25 +28,28 @@ export default class Courses extends Component {
                     </Card.Grid>
                         
                     <Card.Grid style={{width: "100%", background: "#fff"}}>
-                        <p>C engineer is a C Programming course for those who would like to device deep into the field of computer science and discover the beauty of the C programming. The course is not just another C syntax and pointers tutorial. While it does cover that, it is not the primary goal. The course teaches students how to think in C and build complex data types according to the problem being faced. The course will give students an overview over the multiple fields in computer science and help them decice where will they want to specialize in. The fields covered in the course are the following:</p>
-                            <pre><code>Operating systems</code></pre>
-                            <pre><code>Compilers</code></pre>
-                            <pre><code>Interpreters & virtual machines</code></pre>
-                            <pre><code>C Programming language</code></pre>
-                            <pre><code>Data structures</code></pre>
-                            <pre><code>Graphs and optimizations</code></pre>
-                            <pre><code>Search engines</code></pre>
-                            <pre><code>Game programming</code></pre>
-                            <pre><code>Machine learning</code></pre>
-                            <pre><code>Image processing and computer vision</code></pre>
-                            <pre><code>GPGPU</code></pre>
-                            <pre><code>Web servers</code></pre>
-                            <pre><code>Multithreading</code></pre>
-                            <pre><code>Sockets and networking</code></pre>
-                            <pre><code>Async programming</code></pre>
-                        <p>If you have any inquiry, feel free to tweet me at <a href="https://twitter.com/alonnesora">@alonnesora</a>.</p>
+                        <Collapse defaultActiveKey={[]}>
+                            <Panel header="Course Description" key="1">
+                                <p>C engineer is a C Programming course for those who would like to device deep into the field of computer science and discover the beauty of the C programming. The course is not just another C syntax and pointers tutorial. While it does cover that, it is not the primary goal. The course teaches students how to think in C and build complex data types according to the problem being faced. The course will give students an overview over the multiple fields in computer science and help them decice where will they want to specialize in. The fields covered in the course are the following:</p>
+                                    <pre><code>Operating systems</code></pre>
+                                    <pre><code>Compilers</code></pre>
+                                    <pre><code>Interpreters & virtual machines</code></pre>
+                                    <pre><code>C Programming language</code></pre>
+                                    <pre><code>Data structures</code></pre>
+                                    <pre><code>Graphs and optimizations</code></pre>
+                                    <pre><code>Search engines</code></pre>
+                                    <pre><code>Game programming</code></pre>
+                                    <pre><code>Machine learning</code></pre>
+                                    <pre><code>Image processing and computer vision</code></pre>
+                                    <pre><code>GPGPU</code></pre>
+                                    <pre><code>Web servers</code></pre>
+                                    <pre><code>Multithreading</code></pre>
+                                    <pre><code>Sockets and networking</code></pre>
+                                    <pre><code>Async programming</code></pre>
+                                <p>If you have any inquiry, feel free to tweet me at <a href="https://twitter.com/alonnesora">@alonnesora</a>.</p>
+                            </Panel>
+                        </Collapse>
                     </Card.Grid>
-
                 </Card>
             </div>
 
